@@ -69,6 +69,3 @@ java aniket
 
 - Java Development Kit (JDK)
 
-## License
-
-MIT
