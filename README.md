@@ -1,66 +1,74 @@
-# Advanced Java Lab
+# Advanced Java Lab Projects - Java Swing Lab
 
-This repository contains the Java programs and mini projects completed as part of the **Advanced Java Lab** coursework. The projects focus on learning GUI development using Swing and database connectivity using JDBC.
+A collection of Java Swing desktop applications developed as lab projects.
 
 ## Projects
 
-### 1. Student Registration Form
+### 1. Calculator
 
-A desktop application built with Java Swing that allows users to enter and manage student information through a graphical interface.
+A simple calculator application built with **Java Swing** following the **MVC (Model-View-Controller)** architecture pattern.
 
-**Features**
-- Student registration form
-- Gender selection using radio buttons
-- Reset form fields
-- Submit with basic validation
+#### Features
 
-**Technologies**
-- Java
-- Swing
-- AWT Event Handling
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Percentage calculation
+
+#### Architecture
+
+```
+Calculator/
+├── Main.java       # Entry point
+├── Cmodels.java    # Model - Business logic
+├── Cviews.java     # View  - Swing UI components
+└── Ccontroller.java# Controller - Event handling
+```
+
+#### How to Run
+
+```bash
+cd Calculator
+javac *.java
+java Calculator.Main
+```
 
 ---
 
-### 2. JDBC CRUD Operations
+### 2. Registration Form
 
-A simple Java application that demonstrates database connectivity and CRUD (Create, Read, Update, Delete) operations using JDBC and MySQL.
+A desktop-based **student registration form** built with **Java Swing**.
 
-**Features**
-- Insert records
-- View records
-- Update existing records
-- Delete records
-- MySQL database connectivity
+#### Features
 
-**Technologies**
-- Java
-- JDBC
-- MySQL
+- Input fields: Name, Roll No, and Branch
+- Gender selection using radio buttons (Male / Female)
+- Terms & Conditions checkbox
+- **Form validation** before submission
+- Submit button with success popup
+- Reset button to clear all fields
+
+#### Validation Rules
+
+- All text fields are required
+- Gender must be selected
+- Terms & Conditions must be accepted before submission
+
+#### How to Run
+
+```bash
+cd "Registration Form"
+javac aniket.java
+java aniket
+```
+
+---
 
 ## Requirements
 
-- JDK 8 or later
-- Java IDE (IntelliJ IDEA, Eclipse, or NetBeans)
-- MySQL Server (for the JDBC project)
-- MySQL JDBC Connector
+- Java Development Kit (JDK)
 
-## How to Run
+## License
 
-1. Clone this repository.
-2. Open the required project in your preferred Java IDE.
-3. For the JDBC project, configure the database credentials in the source code.
-4. Compile and run the main class.
-
-## Learning Outcomes
-
-Through these projects, I gained practical experience in:
-
-- Building GUI applications using Java Swing
-- Handling user events with ActionListeners
-- Connecting Java applications to MySQL using JDBC
-- Performing basic database operations (CRUD)
-- Organizing Java projects for academic coursework
-
-## Author
-
-**Aniket Saini**
+MIT
