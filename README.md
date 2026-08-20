@@ -1,32 +1,11 @@
-# Advanced Java Lab Projects - Java Swing Lab
+# Advanced Java Lab Projects
 
-A collection of Java Swing desktop applications developed as lab projects.
+Java lab projects: Swing apps, Sockets, RMI, and JDBC. Requires **JDK** (tested on JDK 26); MySQL needed only for the JDBC project.
 
 ## Projects
 
-### 1. Calculator
-
-A simple calculator application built with **Java Swing** following the **MVC (Model-View-Controller)** architecture pattern.
-
-#### Features
-
-- Addition
-- Subtraction
-- Multiplication
-- Division
-- Percentage calculation
-
-#### Architecture
-
-```
-Calculator/
-├── Main.java       # Entry point
-├── Cmodels.java    # Model - Business logic
-├── Cviews.java     # View  - Swing UI components
-└── Ccontroller.java# Controller - Event handling
-```
-
-#### How to Run
+### 1. Calculator (Swing MVC)
+A simple calculator (add, subtract, multiply, divide, percentage) built with Java Swing using MVC.
 
 ```bash
 cd Calculator
@@ -34,28 +13,8 @@ javac *.java
 java Calculator.Main
 ```
 
----
-
-### 2. Registration Form
-
-A desktop-based **student registration form** built with **Java Swing**.
-
-#### Features
-
-- Input fields: Name, Roll No, and Branch
-- Gender selection using radio buttons (Male / Female)
-- Terms & Conditions checkbox
-- **Form validation** before submission
-- Submit button with success popup
-- Reset button to clear all fields
-
-#### Validation Rules
-
-- All text fields are required
-- Gender must be selected
-- Terms & Conditions must be accepted before submission
-
-#### How to Run
+### 2. Registration Form (Swing)
+Student registration form with Name/Roll/Branch fields, gender radio buttons, terms checkbox, validation, submit & reset.
 
 ```bash
 cd "Registration Form"
@@ -63,9 +22,32 @@ javac aniket.java
 java aniket
 ```
 
----
+### 3. RMI
+Client calls remote `Calculator` methods (add, subtract) on a server via Java RMI. Use three terminals in `RMI`:
 
-## Requirements
+```bash
+javac *.java
+start rmiregistry          # Terminal 1
+java Server                # Terminal 2
+java Client                # Terminal 3  -> Addition: 30 Subtraction: 10
+```
 
-- Java Development Kit (JDK)
+### 4. Server Client Basics (Sockets)
+TCP client-server on port 5000. Two terminals in `Server Client Basics`:
 
+```bash
+javac server.java; java server   # Terminal 1
+javac client.java; java client   # Terminal 2  -> Server: Hello Client
+```
+
+### 5. MySQL Connect (JDBC)
+Connects to MySQL (`college` DB), inserts a row into `student`. Needs a running MySQL server and the `mysql-connector-j-26.7.0.jar` in `lib/`.
+
+```bash
+cd "Mysql Connect/jdbc"
+javac -cp "lib/mysql-connector-j-26.7.0.jar" -d bin src/App.java
+java  -cp "bin;lib/mysql-connector-j-26.7.0.jar" App
+```
+
+## License
+MIT
