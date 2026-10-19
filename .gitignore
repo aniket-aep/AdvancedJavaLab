@@ -1,0 +1,34 @@
+# Compiled class files (untracked)
+*.class
+
+# Log files
+*.log
+catalina.*
+localhost.*
+localhost_access_log.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE configurations
+.vscode/
+.idea/
+*.iml
+
+# Antigravity / Agentic worktrees
+.kilo/
+
+# Local Softwares, Tools & Runtimes (Do not push to Git)
+Softwares/
+softwares/
+apache-tomcat-*/
+mysql-connector-*
+
+# Maven & Java build outputs
+target/
+**/target/
+**/bin/
+
+
