@@ -20,11 +20,9 @@ desktop.ini
 # Antigravity / Agentic worktrees
 .kilo/
 
-# Local Softwares, Tools & Runtimes (Do not push to Git)
-Softwares/
-softwares/
-apache-tomcat-*/
-mysql-connector-*
+# Tomcat runtime logs & work directories
+Exp_06_Apache_Tomcat/**/logs/*
+Exp_06_Apache_Tomcat/**/work/*
 
 # Maven & Java build outputs
 target/
