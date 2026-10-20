@@ -7,9 +7,9 @@
 [![Apache Maven](https://img.shields.io/badge/Apache%20Maven-3.9%2B-C71A36?logo=apachemaven&logoColor=white)](https://maven.apache.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Welcome to the **Advanced Java Laboratory** repository. This workspace contains the complete suite of **8 laboratory experiments**, the enterprise capstone project (**ShopSphere**), and local **software distributions** (Apache Tomcat 11 and MySQL Connector/J).
+Welcome to the **Advanced Java Laboratory** repository. This repository contains the complete curriculum sequence of laboratory experiments, Apache Tomcat 11 web runtime container, and the enterprise capstone project (**ShopSphere**).
 
-All experiment modules and the capstone project reside directly at the repository root for clean, immediate navigation.
+All experiment modules and the capstone project reside directly at the repository root, aligned with the laboratory curriculum sequence.
 
 ---
 
@@ -18,102 +18,127 @@ All experiment modules and the capstone project reside directly at the repositor
 ```
 AJL/
 ├── README.md                                          # Master repository documentation (this file)
-├── .gitignore                                         # Git ignore rules (protects Softwares, logs & binaries)
+├── .gitignore                                         # Git ignore rules for build artifacts & runtime logs
 │
-├── Exp-01-Calculator/                                 # Exp 1: Swing Calculator with MVC Pattern
+├── Exp_01_Student_Registration_Form/                  # Exp 1: Desktop Student Registration Form (Swing)
+│   ├── aniket.java                                    # Swing GUI, validation & event handling
+│   ├── aniket.class                                   # Compiled Java bytecode
+│   └── README.md                                      # Experiment 1 detailed guide
+│
+├── Exp_02_Calculator/                                 # Exp 2: Swing Calculator with MVC Pattern
 │   ├── Ccontroller.java                               # Controller (ActionListener event dispatch)
 │   ├── Cmodels.java                                   # Model (Arithmetic business logic)
 │   ├── Cviews.java                                    # View (Swing JFrame UI components)
 │   ├── Main.java                                      # Main entry point
-│   └── README.md                                      # Experiment 1 detailed guide
-│
-├── Exp-02-Registration-Form/                          # Exp 2: Desktop Student Registration Form
-│   ├── aniket.java                                    # Swing GUI, validation & event handling
 │   └── README.md                                      # Experiment 2 detailed guide
 │
-├── Exp-03-RMI/                                        # Exp 3: Java Remote Method Invocation
+├── Exp_03_Mysql_Connect(JDBC)/                        # Exp 3: JDBC Database Connectivity
+│   ├── jdbc/
+│   │   ├── src/App.java                               # DriverManager, PreparedStatement CRUD
+│   │   ├── lib/mysql-connector-j-26.7.0.jar           # MySQL Type-4 JDBC driver JAR
+│   │   ├── bin/App.class                              # Compiled application bytecode
+│   │   └── README.md                                  # JDBC workspace notes
+│   └── README.md                                      # Experiment 3 detailed guide
+│
+├── Exp_04_Server_Client_Basics/                       # Exp 4: TCP Socket Programming
+│   ├── server.java                                    # ServerSocket listening on port 5000
+│   ├── client.java                                    # Socket client connecting over TCP
+│   ├── server.class                                   # Compiled server bytecode
+│   ├── client.class                                   # Compiled client bytecode
+│   └── README.md                                      # Experiment 4 detailed guide
+│
+├── Exp_05_RMI/                                        # Exp 5: Java Remote Method Invocation
 │   ├── Calculator.java                                # Remote interface (java.rmi.Remote)
 │   ├── CalculatorImpl.java                            # Remote implementation (UnicastRemoteObject)
 │   ├── Server.java                                    # RMI Server & Registry binding
 │   ├── Client.java                                    # RMI Client remote invocation
-│   └── README.md                                      # Experiment 3 detailed guide
+│   └── README.md                                      # Experiment 5 detailed guide
 │
-├── Exp-04-Server-Client-Basics/                       # Exp 4: TCP Socket Programming
-│   ├── server.java                                    # ServerSocket listening on port 5000
-│   ├── client.java                                    # Socket client connecting over TCP
-│   └── README.md                                      # Experiment 4 detailed guide
+├── Exp_06_Apache_Tomcat/                              # Exp 6: Apache Tomcat 11 Web Container
+│   ├── apache-tomcat-11.0.25/                         # Apache Tomcat 11.0.25 installation
+│   │   ├── bin/                                       # Startup & shutdown scripts (startup.bat/sh)
+│   │   ├── conf/                                      # Server XML configurations (server.xml, web.xml)
+│   │   ├── lib/                                       # Servlet 6.1 & JSP 4.1 container libraries
+│   │   └── webapps/
+│   │       ├── ROOT/                                  # Default root web application
+│   │       ├── studentform/                           # Pre-deployed Student Form HTML/CSS/JS webapp
+│   │       └── servlet.war                            # Pre-deployed Jakarta Servlet & JSP application
+│   └── README.md                                      # Experiment 6 Tomcat administration guide
 │
-├── Exp-05-MySQL-Connect/                              # Exp 5: JDBC Database Connectivity
-│   ├── jdbc/
-│   │   ├── src/App.java                               # DriverManager, PreparedStatement CRUD
-│   │   └── lib/mysql-connector-j-26.7.0.jar           # MySQL Type-4 JDBC driver JAR
-│   └── README.md                                      # Experiment 5 schema & execution guide
-│
-├── Exp-06-Student-Registration-Webapp/                # Exp 6: Web Student Registration Form
-│   ├── index.html                                     # HTML5 form with CSS3 & JS validation
-│   └── README.md                                      # Experiment 6 Tomcat deployment guide
-│
-├── Exp-07-Servlet-Login-App/                          # Exp 7: Jakarta Servlet Web App (Maven)
+├── Exp_06_Servlet,Jsp/                                # Exp 6: Jakarta Servlets & Dynamic JSP (Maven)
 │   ├── servlet/
-│   │   ├── pom.xml                                    # Maven dependencies (Jakarta Servlet 6.1)
-│   │   └── src/                                       # Servlets, Filters, Listeners, index.html
-│   └── README.md                                      # Experiment 7 architecture & deploy guide
+│   │   ├── pom.xml                                    # Maven build (Jakarta Servlet 6.1, JSP 4.1, JSTL 3.0)
+│   │   └── src/main/
+│   │       ├── java/com/servlet/                      # AppListener, AuthFilter, Login, Logout, Hello, Home
+│   │       └── webapp/                                # index.jsp, index.html, student.jsp, result.jsp
+│   └── README.md                                      # Experiment 6 Servlets & JSP comprehensive guide
 │
-├── Exp-08-JSP-Conversion/                             # Exp 8: HTML to Dynamic JSP & JSTL (Maven)
-│   ├── servlet/
-│   │   ├── pom.xml                                    # Maven build (JSTL 3.0, EL 5.0)
-│   │   └── src/                                       # student.jsp, result.jsp, JSTL, Servlets
-│   └── README.md                                      # Experiment 8 comprehensive guide
-│
-├── ShopSphere/                                        # Major Capstone Project: Enterprise E-Commerce
-│   ├── pom.xml                                        # Master Maven project descriptor
-│   ├── README.md                                      # Complete ShopSphere developer guide
-│   ├── PROJECT_REPORT.md                              # Comprehensive academic project report
-│   ├── RTU_SYLLABUS_MAPPING.md                        # RTU Java syllabus curriculum mapping
-│   ├── database/shopsphere.sql                        # MySQL database schema & seed data
-│   ├── src/main/java/com/shopsphere/                  # Servlets, DAOs, Swing FlatLaf, Sockets, RMI
-│   └── src/main/webapp/                               # JSPs, Custom Tag Files, JSTL, CSS, JS
-│
-└── Softwares/                                         # Local Software Tools & Runtimes (Git Ignored)
-    ├── README.md                                      # Software configuration & environment guide
-    ├── apache-tomcat-11.0.25/                         # Apache Tomcat 11 Web Application Server
-    └── mysql-connector-j-26.7.0/                      # MySQL Connector/J driver & source distribution
+└── ShopSphere/                                        # Major Capstone Project: Enterprise E-Commerce
+    ├── pom.xml                                        # Master Maven project descriptor
+    ├── README.md                                      # Complete ShopSphere developer guide
+    ├── PROJECT_REPORT.md                              # Comprehensive academic project report
+    ├── RTU_SYLLABUS_MAPPING.md                        # RTU Java syllabus curriculum mapping
+    ├── database/shopsphere.sql                        # MySQL database schema & seed data
+    ├── src/main/java/com/shopsphere/                  # Servlets, DAOs, Swing FlatLaf, Sockets, RMI
+    └── src/main/webapp/                               # JSPs, Custom Tag Files, JSTL, CSS, JS
 ```
 
 ---
 
-## 🔬 Laboratory Experiments (1 to 8)
+## 🔬 Laboratory Experiments Overview
 
-Each experiment is self-contained with its source code and dedicated `README.md`.
-
-### 1. Swing Calculator (MVC Pattern)
-* **Directory**: [`Exp-01-Calculator`](file:///c:/Users/anike/Downloads/AJL/Exp-01-Calculator)
-* **Concepts**: Model-View-Controller architecture, Swing GUI (`JFrame`, `JLabel`, `JTextField`, `JButton`), `ActionListener`, zero-division protection.
+### 1. Student Registration Form (Java Swing)
+* **Directory**: [`Exp_01_Student_Registration_Form`](file:///c:/Users/anike/Downloads/AJL/Exp_01_Student_Registration_Form)
+* **Concepts**: Java Swing GUI controls (`JFrame`, `JLabel`, `JTextField`, `JRadioButton`, `ButtonGroup`, `JCheckBox`), validation logic, `JOptionPane` modal dialogs, submit/reset event handling.
 * **Run**:
   ```bash
-  cd Exp-01-Calculator
-  javac -d . *.java
-  java Calculator.Main
-  ```
-
----
-
-### 2. Desktop Student Registration Form (Swing)
-* **Directory**: [`Exp-02-Registration-Form`](file:///c:/Users/anike/Downloads/AJL/Exp-02-Registration-Form)
-* **Concepts**: Swing GUI controls, `JRadioButton`, `ButtonGroup`, `JCheckBox`, form field validation, `JOptionPane` modal dialogs, submit/reset logic.
-* **Run**:
-  ```bash
-  cd Exp-02-Registration-Form
+  cd Exp_01_Student_Registration_Form
   javac aniket.java
   java aniket
   ```
 
 ---
 
-### 3. Remote Method Invocation (RMI)
-* **Directory**: [`Exp-03-RMI`](file:///c:/Users/anike/Downloads/AJL/Exp-03-RMI)
-* **Concepts**: Distributed computing, Remote Interface (`java.rmi.Remote`), `UnicastRemoteObject`, `rmiregistry` on port 1099, `Naming.rebind()`, `Naming.lookup()`.
-* **Run** (using 3 terminals in `Exp-03-RMI`):
+### 2. Swing Calculator (MVC Architecture)
+* **Directory**: [`Exp_02_Calculator`](file:///c:/Users/anike/Downloads/AJL/Exp_02_Calculator)
+* **Concepts**: Model-View-Controller pattern, Swing GUI (`JFrame`, `JLabel`, `JTextField`, `JButton`), `ActionListener`, zero-division protection.
+* **Run**:
+  ```bash
+  cd Exp_02_Calculator
+  javac -d . *.java
+  java Calculator.Main
+  ```
+
+---
+
+### 3. MySQL Database Connectivity (JDBC)
+* **Directory**: [`Exp_03_Mysql_Connect(JDBC)`](file:///c:/Users/anike/Downloads/AJL/Exp_03_Mysql_Connect(JDBC))
+* **Concepts**: Type-4 JDBC driver (`com.mysql.cj.jdbc.Driver`), `DriverManager.getConnection()`, parameterized `PreparedStatement`, SQL injection prevention, DML execution on `college.student`.
+* **Run**:
+  ```bash
+  cd "Exp_03_Mysql_Connect(JDBC)/jdbc"
+  javac -cp "lib/mysql-connector-j-26.7.0.jar" -d bin src/App.java
+  java  -cp "bin;lib/mysql-connector-j-26.7.0.jar" App
+  ```
+
+---
+
+### 4. Server-Client Basics (TCP Sockets)
+* **Directory**: [`Exp_04_Server_Client_Basics`](file:///c:/Users/anike/Downloads/AJL/Exp_04_Server_Client_Basics)
+* **Concepts**: Stream sockets, `java.net.ServerSocket`, `java.net.Socket`, TCP handshake, buffered I/O stream communication on port `5000`.
+* **Run** (using 2 terminals in `Exp_04_Server_Client_Basics`):
+  ```bash
+  javac server.java client.java
+  java server              # Terminal 1: Starts Server
+  java client              # Terminal 2: Connects Client -> Server: Hello Client
+  ```
+
+---
+
+### 5. Java Remote Method Invocation (RMI)
+* **Directory**: [`Exp_05_RMI`](file:///c:/Users/anike/Downloads/AJL/Exp_05_RMI)
+* **Concepts**: Distributed computing, Remote Interface (`java.rmi.Remote`), `UnicastRemoteObject`, `rmiregistry` on port `1099`, `Naming.rebind()`, `Naming.lookup()`.
+* **Run** (using 3 terminals in `Exp_05_RMI`):
   ```bash
   javac *.java
   start rmiregistry        # Terminal 1: Starts RMI Registry
@@ -123,62 +148,34 @@ Each experiment is self-contained with its source code and dedicated `README.md`
 
 ---
 
-### 4. Server-Client Basics (TCP Sockets)
-* **Directory**: [`Exp-04-Server-Client-Basics`](file:///c:/Users/anike/Downloads/AJL/Exp-04-Server-Client-Basics)
-* **Concepts**: Stream sockets, `java.net.ServerSocket`, `java.net.Socket`, TCP handshake, buffered I/O stream communication on port 5000.
-* **Run** (using 2 terminals in `Exp-04-Server-Client-Basics`):
-  ```bash
-  javac server.java client.java
-  java server              # Terminal 1: Starts Server
-  java client              # Terminal 2: Connects Client -> Server: Hello Client
+### 6. Apache Tomcat 11 Web Application Server
+* **Directory**: [`Exp_06_Apache_Tomcat`](file:///c:/Users/anike/Downloads/AJL/Exp_06_Apache_Tomcat)
+* **Concepts**: Web application container topology, `webapps` deployment directory, `catalina` startup scripts, pre-configured `studentform` HTML5/CSS3/JavaScript webapp.
+* **Run**:
+  ```cmd
+  cd Exp_06_Apache_Tomcat\apache-tomcat-11.0.25\bin
+  startup.bat
   ```
+  Open browser at: `http://localhost:8080/studentform/`
 
 ---
 
-### 5. MySQL Database Connectivity (JDBC)
-* **Directory**: [`Exp-05-MySQL-Connect`](file:///c:/Users/anike/Downloads/AJL/Exp-05-MySQL-Connect)
-* **Concepts**: Type-4 JDBC driver, `DriverManager.getConnection()`, parameterized `PreparedStatement`, SQL injection prevention, DML execution on `college.student`.
-* **Run**:
+### 7. Jakarta Servlets & Dynamic JavaServer Pages (JSP)
+* **Directory**: [`Exp_06_Servlet,Jsp`](file:///c:/Users/anike/Downloads/AJL/Exp_06_Servlet,Jsp)
+* **Concepts**: Jakarta EE 10 (Servlet 6.1, JSP 4.1, JSTL 3.0), Maven WAR packaging, session management (`HttpSession`), authentication security filter (`@WebFilter("/home")`), lifecycle listeners (`@WebListener`), dynamic JSP form processing (`student.jsp` -> `HelloServlet` -> `result.jsp`), and Expression Language (EL: `${studentName}`).
+* **Build & Deploy**:
   ```bash
-  cd Exp-05-MySQL-Connect/jdbc
-  javac -cp "lib/mysql-connector-j-26.7.0.jar" -d bin src/App.java
-  java  -cp "bin;lib/mysql-connector-j-26.7.0.jar" App
-  ```
-
----
-
-### 6. Student Registration Form (Web Application & Tomcat)
-* **Directory**: [`Exp-06-Student-Registration-Webapp`](file:///c:/Users/anike/Downloads/AJL/Exp-06-Student-Registration-Webapp)
-* **Concepts**: Web application deployment structure, semantic HTML5, CSS3 responsive layout, client-side JavaScript form validation.
-* **Run**:
-  - Direct preview: Open `Exp-06-Student-Registration-Webapp/index.html` in your browser.
-  - Deployed on Tomcat: Pre-configured in `Softwares/apache-tomcat-11.0.25/webapps/studentform/`. Start Tomcat and access: `http://localhost:8080/studentform/`.
-
----
-
-### 7. Servlet Login Application (Jakarta EE & Maven)
-* **Directory**: [`Exp-07-Servlet-Login-App`](file:///c:/Users/anike/Downloads/AJL/Exp-07-Servlet-Login-App)
-* **Concepts**: Jakarta Servlet 6.1, Maven WAR packaging, session management (`HttpSession`), authentication security filter (`@WebFilter("/home")`), lifecycle listeners (`@WebListener`).
-* **Run**:
-  ```bash
-  cd Exp-07-Servlet-Login-App/servlet
+  cd "Exp_06_Servlet,Jsp/servlet"
   mvn clean package
-  copy target\servlet.war "..\..\Softwares\apache-tomcat-11.0.25\webapps\servlet.war"
   ```
-  Start Tomcat and open: `http://localhost:8080/servlet/` (Credentials: `admin` / `1234`).
-
----
-
-### 8. Conversion of HTML into Dynamic JSP (Jakarta EE & Maven)
-* **Directory**: [`Exp-08-JSP-Conversion`](file:///c:/Users/anike/Downloads/AJL/Exp-08-JSP-Conversion)
-* **Concepts**: Converting static HTML to dynamic JSP (`student.jsp`), MVC dispatching (`forward`), Expression Language (EL: `${name}`), JSTL 3.0 Core/XML/SQL tags, modular JSP fragments (`footer.jsp`).
-* **Run**:
-  ```bash
-  cd Exp-08-JSP-Conversion/servlet
-  mvn clean package
-  copy target\servlet.war "..\..\Softwares\apache-tomcat-11.0.25\webapps\servlet.war"
+  Deploy the generated `target/servlet.war` to Tomcat:
+  ```powershell
+  Copy-Item "target\servlet.war" "..\..\Exp_06_Apache_Tomcat\apache-tomcat-11.0.25\webapps\servlet.war" -Force
   ```
-  Open: `http://localhost:8080/servlet/student.jsp`
+  Access via browser:
+  * JSP Registration Form: `http://localhost:8080/servlet/student.jsp`
+  * Servlet Login Authentication: `http://localhost:8080/servlet/index.jsp` (`admin` / `1234`)
+  * Protected Dashboard: `http://localhost:8080/servlet/home`
 
 ---
 
@@ -186,8 +183,8 @@ Each experiment is self-contained with its source code and dedicated `README.md`
 
 * **Directory**: [`ShopSphere`](file:///c:/Users/anike/Downloads/AJL/ShopSphere)
 * **Documentation**:
-  - [ShopSphere README](file:///c:/Users/anike/Downloads/AJL/ShopSphere/README.md)
-  - [Complete Academic Project Report](file:///c:/Users/anike/Downloads/AJL/ShopSphere/PROJECT_REPORT.md)
+  - [ShopSphere Developer Guide](file:///c:/Users/anike/Downloads/AJL/ShopSphere/README.md)
+  - [Academic Project Report](file:///c:/Users/anike/Downloads/AJL/ShopSphere/PROJECT_REPORT.md)
   - [RTU Syllabus Curriculum Mapping](file:///c:/Users/anike/Downloads/AJL/ShopSphere/RTU_SYLLABUS_MAPPING.md)
 
 ### Key Capabilities
@@ -197,7 +194,7 @@ Each experiment is self-contained with its source code and dedicated `README.md`
 - **Distributed Objects**: Java RMI Remote Inventory Service on port 1099.
 - **Dual Database Fallback**: Automated seamless fallback to **Embedded H2 In-Memory Database** if local MySQL is unconfigured, enabling 100% offline demonstrations.
 
-### One-Click Execution Commands
+### Execution Commands
 ```bash
 cd ShopSphere
 
@@ -217,30 +214,6 @@ mvn exec:java "-Dexec.mainClass=com.shopsphere.network.client.InventoryClient"  
 mvn exec:java "-Dexec.mainClass=com.shopsphere.rmi.server.RmiServer"            # Terminal 1
 mvn exec:java "-Dexec.mainClass=com.shopsphere.rmi.client.RmiClient"            # Terminal 2
 ```
-
----
-
-## 🛠️ Software & Setup Environments (Local Only)
-
-All standalone servers and drivers required for local execution are housed inside [`Softwares/`](file:///c:/Users/anike/Downloads/AJL/Softwares) (configured in `.gitignore` so they are never pushed to GitHub):
-
-1. **Apache Tomcat 11.0.25** (`Softwares/apache-tomcat-11.0.25`):
-   - Start: `Softwares\apache-tomcat-11.0.25\bin\startup.bat`
-   - Stop: `Softwares\apache-tomcat-11.0.25\bin\shutdown.bat`
-   - Default Port: `8080` (`http://localhost:8080/`)
-2. **MySQL Connector/J 26.7.0** (`Softwares/mysql-connector-j-26.7.0`):
-   - Type-4 JDBC driver JAR: `Softwares/mysql-connector-j-26.7.0/mysql-connector-j-26.7.0.jar`
-
----
-
-## 🔗 Git Configuration & Repository Status
-
-| Attribute | Details |
-| :--- | :--- |
-| **Repository Remote (`origin`)** | `https://github.com/AniXDex/AdvancedJavaLab.git` |
-| **Upstream Base Repository** | `https://github.com/aniket-aep/AdvancedJavaLab.git` |
-| **Active Local Branch** | `main` |
-| **Configured Git User** | `Aniket Saini` (`aniketxdop@gmail.com`) |
 
 ---
 
