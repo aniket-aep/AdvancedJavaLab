@@ -65,13 +65,21 @@ AJL/
 │   │       └── servlet.war                            # Pre-deployed Jakarta Servlet & JSP application
 │   └── README.md                                      # Experiment 6 Tomcat administration guide
 │
-├── Exp_06_Servlet,Jsp/                                # Exp 6: Jakarta Servlets & Dynamic JSP (Maven)
+├── Exp_06_Servlet_Login_App/                          # Exp 6: Jakarta Servlet Login Application (Maven)
+│   ├── servlet/
+│   │   ├── pom.xml                                    # Maven build (Jakarta Servlet 6.1)
+│   │   └── src/main/
+│   │       ├── java/com/servlet/                      # AppListener, AuthFilter, Login, Logout, Hello, Home
+│   │       └── webapp/                                # index.html, WEB-INF/web.xml
+│   └── README.md                                      # Experiment 6 Servlet Login guide
+│
+├── Exp_07_JSP_Conversion/                             # Exp 7: Dynamic JSP Conversion & JSTL (Maven)
 │   ├── servlet/
 │   │   ├── pom.xml                                    # Maven build (Jakarta Servlet 6.1, JSP 4.1, JSTL 3.0)
 │   │   └── src/main/
-│   │       ├── java/com/servlet/                      # AppListener, AuthFilter, Login, Logout, Hello, Home
-│   │       └── webapp/                                # index.jsp, index.html, student.jsp, result.jsp
-│   └── README.md                                      # Experiment 6 Servlets & JSP comprehensive guide
+│   │       ├── java/com/servlet/                      # HelloServlet, AppListener, AuthFilter, Login, etc.
+│   │       └── webapp/                                # student.jsp, result.jsp, result-jstl.jsp, footer.jsp, style.css
+│   └── README.md                                      # Experiment 7 comprehensive JSP guide
 │
 └── ShopSphere/                                        # Major Capstone Project: Enterprise E-Commerce
     ├── pom.xml                                        # Master Maven project descriptor
@@ -160,12 +168,28 @@ AJL/
 
 ---
 
-### 7. Jakarta Servlets & Dynamic JavaServer Pages (JSP)
-* **Directory**: [`Exp_06_Servlet,Jsp`](file:///c:/Users/anike/Downloads/AJL/Exp_06_Servlet,Jsp)
-* **Concepts**: Jakarta EE 10 (Servlet 6.1, JSP 4.1, JSTL 3.0), Maven WAR packaging, session management (`HttpSession`), authentication security filter (`@WebFilter("/home")`), lifecycle listeners (`@WebListener`), dynamic JSP form processing (`student.jsp` -> `HelloServlet` -> `result.jsp`), and Expression Language (EL: `${studentName}`).
+### 6. Servlet Login Application (Jakarta EE & Maven)
+* **Directory**: [`Exp_06_Servlet_Login_App`](file:///c:/Users/anike/Downloads/AJL/Exp_06_Servlet_Login_App)
+* **Concepts**: Jakarta Servlet 6.1, Maven WAR packaging, session management (`HttpSession`), authentication security filter (`@WebFilter("/home")`), lifecycle listeners (`@WebListener`).
+* **Run**:
+  ```bash
+  cd "Exp_06_Servlet_Login_App/servlet"
+  mvn clean package
+  ```
+  Deploy `target/servlet.war` to Tomcat:
+  ```powershell
+  Copy-Item "target\servlet.war" "..\..\Exp_06_Apache_Tomcat\apache-tomcat-11.0.25\webapps\servlet.war" -Force
+  ```
+  Start Tomcat and open: `http://localhost:8080/servlet/` (`admin` / `1234`).
+
+---
+
+### 7. Conversion of HTML into Dynamic JSP (Jakarta EE & Maven)
+* **Directory**: [`Exp_07_JSP_Conversion`](file:///c:/Users/anike/Downloads/AJL/Exp_07_JSP_Conversion)
+* **Concepts**: Converting static HTML to dynamic JSP (`student.jsp`), MVC dispatching (`forward`), Expression Language (EL: `${studentName}`), JSTL 3.0 Core/XML/SQL tags, modular JSP fragments (`footer.jsp`).
 * **Build & Deploy**:
   ```bash
-  cd "Exp_06_Servlet,Jsp/servlet"
+  cd "Exp_07_JSP_Conversion/servlet"
   mvn clean package
   ```
   Deploy the generated `target/servlet.war` to Tomcat:
@@ -174,8 +198,7 @@ AJL/
   ```
   Access via browser:
   * JSP Registration Form: `http://localhost:8080/servlet/student.jsp`
-  * Servlet Login Authentication: `http://localhost:8080/servlet/index.jsp` (`admin` / `1234`)
-  * Protected Dashboard: `http://localhost:8080/servlet/home`
+  * Dynamic JSP Login: `http://localhost:8080/servlet/index.jsp`
 
 ---
 
